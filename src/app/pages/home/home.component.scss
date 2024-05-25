@@ -197,11 +197,26 @@
 }
 
 @media (max-width: 952px) {
-  .home-container .windows-scroll .chart .box-1 .bar-line-container {
-    width: 7000px;
+  .home-container {
+    padding: 1rem 2%;
 
-    .column .bar.temp {
-      font-size: 8px;
+    .chart-container {
+      padding: 0 1rem;
+
+      .windows-scroll .chart .box-1 {
+        
+        .label-vertical {
+          width: 1.5rem;
+        }
+
+        .bar-line-container {
+          width: 8000px;
+
+          .column .bar.temp {
+            font-size: 8px;
+          }
+        }
+      }
     }
   }
 }
