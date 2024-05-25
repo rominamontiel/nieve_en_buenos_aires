@@ -1,0 +1,207 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #666f79;
+  padding: 3rem 5%;
+  min-height: 100vh;
+
+  h1 {
+    margin-bottom: 3rem;
+    text-align: center;
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  .chart-container {
+    background-color: white;
+    border: 2px solid #d2d9df;
+    margin-bottom: 4rem;
+    padding: 0 3rem;
+
+    h2 {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .windows-scroll {
+      width: 100%;
+      overflow-x: auto;
+
+      .chart {
+        .box-1 {
+          display: flex;
+          width: max-content;
+
+          .label-vertical {
+            height: 500px;
+            width: 2rem;
+            border: 1px solid #d2d9df;
+            border-width: 1px 1px 0px 1px;
+            text-align: center;
+            font-size: 11px;
+
+            & > div {
+              height: 10%;
+              border-top: 1px solid #d2d9df;
+
+              &:first-child {
+                border-top: none;
+              }
+            }
+          }
+
+          .bar-line-container {
+            height: 500px;
+            display: flex;
+            align-items: end;
+            padding: 0 0.5rem;
+            width: 9500px;
+            background-image: linear-gradient(
+              0deg,
+              #ffffff 49%,
+              #ebeef5 49%,
+              #ebeef5 50%,
+              #ffffff 50%,
+              #ffffff 99%,
+              #ebeef5 99%,
+              #ebeef5 100%
+            );
+            background-size: 100px 100px;
+
+            .column {
+              flex: 1;
+              margin-right: 2px;
+              position: relative;
+
+              .bar {
+                width: 100%;
+                height: 100%;
+                background-color: #8ec6ef;
+                border-radius: 4px 4px 0 0;
+                position: relative;
+                color: white;
+                text-align: center;
+                font-size: 10px;
+                padding-top: 3px;
+
+                &.temp {
+                  border-radius: 4px 4px 0 0;
+                  background: linear-gradient(
+                    0deg,
+                    #31aeff 0px,
+                    #94c473 133px,
+                    #f2d704 252px,
+                    #f28a0e 384px,
+                    #e63030 452px
+                  );
+                }
+
+                .snow {
+                  position: absolute;
+                  bottom: 100%;
+                  color: #8ec6ef;
+                  font-size: 14px;
+                  left: 0;
+                  width: 100%;
+                  text-align: center;
+                }
+
+                &:hover {
+                  .hover {
+                    display: block;
+                  }
+                }
+
+                .hover {
+                  position: absolute;
+                  bottom: 104%;
+                  background: #2a3036;
+                  border-radius: 4px;
+                  padding: 5px 1rem;
+                  color: white;
+                  display: none;
+
+                  p {
+                    white-space: nowrap;
+                    margin: 0 0 3px 0;
+                  }
+                }
+              }
+
+              .label {
+                height: 4rem;
+                width: 100%;
+                padding-top: 0.5rem;
+
+                span {
+                  // transform: rotate(180deg);
+                  // left: 24%;
+                  // font-size: 12px;
+                  // position: absolute;
+                  // writing-mode: vertical-lr;
+                  // white-space: nowrap;
+
+                  transform: rotate(64deg);
+                  transform-origin: 0% 50%;
+                  left: 24%;
+                  top: 100%;
+                  font-size: 11px;
+                  position: absolute;
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+        }
+
+        .box-2 {
+          border-top: 1px solid #d2d9df;
+          height: 2rem;
+          width: 100%;
+          display: flex;
+          height: 9rem;
+
+          .empty {
+            width: 2rem;
+            height: 100%;
+            // border-right: 1px solid #d2d9df;
+          }
+
+          .label-horizontal {
+            width: calc(100% - 2rem);
+            position: relative;
+            display: flex;
+            padding: 0 0.5rem;
+
+            .label {
+              flex: 1;
+              margin-right: 2px;
+
+              span {
+                font-size: 9px;
+                position: absolute;
+                writing-mode: vertical-lr;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 952px) {
+  .home-container .windows-scroll .chart .box-1 .bar-line-container {
+    width: 7000px;
+
+    .column .bar.temp {
+      font-size: 8px;
+    }
+  }
+}

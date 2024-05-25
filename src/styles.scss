@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --font: "Nunito Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(210, 220, 231);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(166, 175, 189);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  position: relative;
+  color: #2a3036;
+  background-color: #eff2f5;
+  background: linear-gradient(315deg, #c4dbf2, #eff2f5);
+  background-attachment: fixed;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 1024px) {
+  * {
+    cursor: default !important;
+  }
+}

@@ -1,0 +1,110 @@
+<div class="home-container">
+  <h1>
+    ¿Va a nevar en Bs As?⛄
+    <p>(Pronóstico 14 días)</p>
+  </h1>
+
+  <div class="chart-container">
+    <h2>
+      Sumatoria de condiciones necesarias para que nieve (de 0 a 100 puntos)
+    </h2>
+    <p>100 puntos significa que están dadas todas las condiciones para que se forme nieve, pero no asegura una nevada. Condiciones mínimas para la formación de nieve: temperatura menor o igual a 1° y mucha nubosidad</p>
+
+    <div class="windows-scroll">
+      <div class="chart">
+        <div class="box-1">
+          <div class="label-vertical">
+            <div>100</div>
+            <div>90</div>
+            <div>80</div>
+            <div>70</div>
+            <div>60</div>
+            <div>50</div>
+            <div>40</div>
+            <div>30</div>
+            <div>20</div>
+            <div>10</div>
+          </div>
+          <div class="bar-line-container">
+            <div
+              class="column"
+              *ngFor="let b of this.cloudcover; let i = index"
+              [style.height]="this.snowProbability[i]"
+            >
+              <div class="bar">
+                {{ this.snowProbability[i].replace("%", "") }}
+                <div class="hover">
+                  <p>Temp: {{ temperature_2m[i] }}°</p>
+                  <p>Hum: {{ relativehumidity_2m[i] }}%</p>
+                  <p>Nub: {{ cloudcover[i] }}%</p>
+                  <p>Lluv: {{ precipitation_probability[i] }}%</p>
+                  <p>Vien: {{ winddirection_10m[i] }}°</p>
+                </div>
+              </div>
+              <div class="label">
+                <span>{{ getMoment(i) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-2">
+          <div class="empty"></div>
+          <div class="label-horizontal"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <h2>Temperatura en C°</h2>
+    <div class="windows-scroll">
+      <div class="chart">
+        <!-- box-1 -->
+        <div class="box-1">
+          <div class="label-vertical">
+            <div>40°</div>
+            <div>36°</div>
+            <div>32°</div>
+            <div>28°</div>
+            <div>24°</div>
+            <div>20°</div>
+            <div>16°</div>
+            <div>12°</div>
+            <div>8°</div>
+            <div>4°</div>
+          </div>
+          <div class="bar-line-container">
+            <div
+              class="column"
+              *ngFor="let b of this.temperature_2m; let i = index"
+              [style.height]="(this.temperature_2m[i] * 100) / 40 + '%'"
+            >
+              <div class="bar temp">
+                {{ this.temperature_2m[i] }}°
+
+                <div class="snow">
+                  {{ this.temperature_2m[i] < 3 ? "❄" : "" }}
+                </div>
+                <div class="hover">
+                  <p>Temp: {{ temperature_2m[i] }}°</p>
+                  <p>Hum: {{ relativehumidity_2m[i] }}%</p>
+                  <p>Nub: {{ cloudcover[i] }}%</p>
+                  <p>Lluv: {{ precipitation_probability[i] }}%</p>
+                  <p>Vien: {{ winddirection_10m[i] }}°</p>
+                </div>
+              </div>
+              <div class="label">
+                <span>{{ getMoment(i) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- box 2 -->
+        <div class="box-2">
+          <div class="empty"></div>
+          <div class="label-horizontal"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
